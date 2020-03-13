@@ -300,6 +300,7 @@ impl Http1Transaction for Server {
                     warn!("response with HTTP2 version coerced to HTTP/1.1");
                     extend(dst, b"HTTP/1.1 ");
                 }
+                Version::RTSP_10 => extend(dst, b"RTSP/1.0 "),
                 other => panic!("unexpected response version: {:?}", other),
             }
 
