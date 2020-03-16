@@ -26,7 +26,7 @@ futures-channel = "0.3"
 futures-util = { version = "0.3", default-features = false }
 http = { git = "https://github.com/BenxiangGe/http.git", version = "0.2" }
 http-body = { git = "https://github.com/BenxiangGe/http-body.git", version = "0.3.1" }
-httparse = "1.0"
+httparse = { git = "https://github.com/BenxiangGe/httparse.git", version = "1.3.4" }
 h2 = { git = "https://github.com/BenxiangGe/h2.git", version = "0.2.2" }
 itoa = "0.4.1"
 log = "0.4"
