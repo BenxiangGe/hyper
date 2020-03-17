@@ -35,6 +35,7 @@ time = "0.1"
 tower-service = "0.3"
 tokio = { version = "0.2", features = ["sync"] }
 want = "0.3"
+subslice = "0.1.0"
 
 # Optional
 

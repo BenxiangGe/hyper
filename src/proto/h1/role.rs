@@ -110,7 +110,13 @@ impl Http1Transaction for Server {
                     } else {
                         keep_alive = false;
                         is_http_11 = false;
-                        Version::HTTP_10
+
+                        let rtsp_str = [b'R', b'T', b'S', b'P'];
+                        let res = subslice::find(bytes, &rtsp_str);
+                        match res {
+                            Some(_) => Version::RTSP_10,
+                            None => Version::HTTP_10
+                        }
                     };
 
                     record_header_indices(bytes, &req.headers, &mut headers_indices)?;
