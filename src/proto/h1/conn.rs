@@ -860,6 +860,12 @@ impl State {
     }
 
     fn try_keep_alive<T: Http1Transaction>(&mut self) {
+        if let Version::RTSP_10 = self.version {
+            self.reading = Reading::KeepAlive;
+            self.writing = Writing::KeepAlive;
+            self.keep_alive.busy();
+        }
+
         match (&self.reading, &self.writing) {
             (&Reading::KeepAlive, &Writing::KeepAlive) => {
                 if let KA::Busy = self.keep_alive.status() {
